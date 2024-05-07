@@ -1,11 +1,47 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import { createRouter, createWebHistory } from 'vue-router'
+import HomeView from '../views/HomeView.vue';
+import BlogView from '../views/BlogView.vue';
+import LoginView from '../views/LoginView.vue';
+import BlogDetailView from '../views/BlogDetailView.vue';
+import BlogEditView from '../views/BlogEditView.vue';
+
 
 const routes = [
   {
-    path: '/',
-    name: 'home',
-    component: HomeView
+    path: '/index',
+    name: 'Index',
+    redirect: '/blogs'
+  },
+  {
+    path: '/blog/add',
+    name: 'BlogAdd',
+    meta:{
+      requiresAuth: true
+    },
+    component: BlogEditView
+  },
+  {
+    path: '/blog/:id',
+    name: 'BlogDetail',
+    component: BlogDetailView
+  },
+  {
+    path: '/blog/:id/edit',
+    name: 'BlogEdit',
+    meta:{
+      requiresAuth: true
+    },
+    component: BlogEditView
+  },
+  {
+    path: '/blogs',
+    name: 'Blogs',
+    component: BlogView
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: LoginView
   },
   {
     path: '/about',
@@ -18,7 +54,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes
 })
 
