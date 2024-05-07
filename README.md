@@ -1,4 +1,7 @@
 # frontblog
+## Description 
+The frontend project for 
+[backend-project](https://github.com/Jinwenxin/blogPractice)   springboot + shiro + mybatis-plus
 
 ## Project setup
 ```
